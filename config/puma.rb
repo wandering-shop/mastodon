@@ -12,6 +12,8 @@ end
 environment ENV.fetch('RAILS_ENV') { 'development' }
 workers     ENV.fetch('WEB_CONCURRENCY') { 2 }
 
+activate_control_app 'tcp://127.0.0.1:9293', { auth_token: 'shoptalk' }
+
 preload_app!
 
 on_worker_boot do
