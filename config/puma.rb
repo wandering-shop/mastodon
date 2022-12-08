@@ -14,6 +14,8 @@ end
 
 workers ENV.fetch('WEB_CONCURRENCY') { 2 }.to_i
 
+activate_control_app 'tcp://127.0.0.1:9293', { auth_token: 'shoptalk' }
+
 preload_app!
 
 if ENV['MASTODON_PROMETHEUS_EXPORTER_ENABLED'] == 'true'
